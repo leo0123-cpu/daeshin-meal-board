@@ -20,7 +20,7 @@ body {
 }
 
 .container {
-  max-width: 1150px;
+  max-width: 1180px;
   margin: auto;
 }
 
@@ -57,20 +57,35 @@ body {
   border: 1px solid rgba(255,255,255,0.15);
 }
 
-.full-btn {
+.top-buttons {
   position: absolute;
   right: 0;
   top: 0;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.top-buttons button,
+.control-btn,
+.date-control button,
+.class-buttons button,
+.allergy-btn {
   border: none;
   background: rgba(255,255,255,0.1);
   color: white;
-  padding: 11px 17px;
+  padding: 10px 14px;
   border-radius: 14px;
   cursor: pointer;
   font-size: 15px;
 }
 
-.full-btn:hover {
+.top-buttons button:hover,
+.control-btn:hover,
+.date-control button:hover,
+.class-buttons button:hover,
+.allergy-btn:hover {
   background: rgba(255,255,255,0.18);
 }
 
@@ -126,12 +141,6 @@ body {
 }
 
 .class-buttons button {
-  border: none;
-  background: rgba(255,255,255,0.1);
-  color: white;
-  padding: 11px 16px;
-  border-radius: 14px;
-  cursor: pointer;
   font-size: 17px;
 }
 
@@ -219,20 +228,7 @@ h2 {
   justify-content: center;
   gap: 14px;
   margin: 26px 0;
-}
-
-.date-control button {
-  border: none;
-  background: rgba(255,255,255,0.1);
-  color: white;
-  padding: 12px 17px;
-  border-radius: 14px;
-  cursor: pointer;
-  font-size: 17px;
-}
-
-.date-control button:hover {
-  background: rgba(255,255,255,0.18);
+  flex-wrap: wrap;
 }
 
 .selected-date {
@@ -312,15 +308,6 @@ h2 {
   gap: 12px;
 }
 
-.allergy-btn {
-  border: none;
-  background: rgba(255,255,255,0.1);
-  color: white;
-  padding: 9px 13px;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
 .notice {
   color: #aeb6cc;
   line-height: 1.7;
@@ -334,12 +321,162 @@ h2 {
   margin-bottom: 16px;
 }
 
-@media (max-width: 850px) {
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.setting-field label {
+  display: block;
+  color: #aeb6cc;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.setting-field input {
+  width: 100%;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 17px;
+}
+
+.settings-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.setting-info {
+  margin-top: 13px;
+  color: #9fb7ff;
+  line-height: 1.6;
+}
+
+/* TV 모드 */
+body.tv-mode {
+  padding: 18px;
+  overflow: hidden;
+}
+
+body.tv-mode .container {
+  max-width: 1500px;
+}
+
+body.tv-mode .normal-only {
+  display: none !important;
+}
+
+.tv-panel {
+  display: none;
+}
+
+body.tv-mode .tv-panel {
+  display: block;
+}
+
+body.tv-mode .clock {
+  font-size: 95px;
+  margin: 8px 0;
+}
+
+body.tv-mode .school {
+  font-size: 28px;
+}
+
+body.tv-mode .date {
+  font-size: 28px;
+}
+
+body.tv-mode .status {
+  font-size: 30px;
+  padding: 16px 42px;
+}
+
+.tv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 34px;
+}
+
+.tv-card {
+  min-height: 270px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 30px;
+  padding: 34px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.28);
+}
+
+.tv-title {
+  font-size: 32px;
+  color: #9fb7ff;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+
+.tv-main {
+  font-size: 62px;
+  font-weight: 900;
+  color: #ffd84d;
+  margin-bottom: 18px;
+}
+
+.tv-sub {
+  font-size: 30px;
+  color: #dce1f2;
+  line-height: 1.5;
+}
+
+.tv-my {
+  margin-top: 28px;
+  background: linear-gradient(135deg, rgba(80,120,255,0.24), rgba(255,216,77,0.10));
+  border: 1px solid rgba(150,180,255,0.25);
+  border-radius: 30px;
+  padding: 32px;
+}
+
+.tv-my-title {
+  font-size: 34px;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.tv-my-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.tv-my-box {
+  background: rgba(0,0,0,0.18);
+  border-radius: 22px;
+  padding: 26px;
+}
+
+.tv-my-label {
+  color: #aeb6cc;
+  font-size: 24px;
+}
+
+.tv-my-time {
+  color: #ffd84d;
+  font-size: 48px;
+  font-weight: 900;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
   body {
     padding: 18px;
   }
 
-  .cards, .order-box, .menu-box, .live-grid, .my-result {
+  .cards, .order-box, .menu-box, .live-grid, .my-result, .settings-grid, .tv-grid, .tv-my-content {
     grid-template-columns: 1fr;
   }
 
@@ -347,9 +484,10 @@ h2 {
     font-size: 50px;
   }
 
-  .full-btn {
+  .top-buttons {
     position: static;
     margin-bottom: 12px;
+    justify-content: center;
   }
 
   .table {
@@ -359,6 +497,26 @@ h2 {
   .order-list {
     grid-template-columns: 1fr;
   }
+
+  body.tv-mode {
+    overflow: auto;
+  }
+
+  body.tv-mode .clock {
+    font-size: 55px;
+  }
+
+  .tv-main {
+    font-size: 42px;
+  }
+
+  .tv-sub {
+    font-size: 22px;
+  }
+
+  .tv-my-time {
+    font-size: 36px;
+  }
 }
 </style>
 </head>
@@ -367,139 +525,217 @@ h2 {
 <div class="container">
 
   <div class="top">
-    <button class="full-btn" onclick="toggleFullScreen()">전체화면</button>
+    <div class="top-buttons">
+      <button onclick="toggleTVMode()">TV 크게 보기</button>
+      <button onclick="toggleFullScreen()">전체화면</button>
+    </div>
+
     <div class="school">🍽 대전대신고등학교 급식 출발 안내</div>
     <div class="date" id="realDateText"></div>
     <div class="clock" id="clock">00:00:00</div>
     <div class="status" id="status">급식 시간 확인 중</div>
   </div>
 
-  <div class="cards">
-    <div class="card">
-      <div class="meal-title">점심 식사</div>
-      <div class="meal-time">12:20</div>
-      <div class="depart">출발 12:45~</div>
-    </div>
-
-    <div class="card">
-      <div class="meal-title">저녁 식사</div>
-      <div class="meal-time">17:40</div>
-      <div class="depart">출발 18:05~</div>
-    </div>
-  </div>
-
-  <div class="section my-box">
-    <div class="my-title">👤 우리 반 출발 시간</div>
-
-    <div class="class-buttons" id="classButtons"></div>
-
-    <div class="my-result">
-      <div class="my-card">
-        <div class="label">내 반 점심 출발</div>
-        <div class="big" id="myLunchTime">반을 선택하세요</div>
+  <div class="tv-panel">
+    <div class="tv-grid">
+      <div class="tv-card">
+        <div class="tv-title">☀️ 점심 출발 안내</div>
+        <div class="tv-main" id="tvLunchMain">확인 중</div>
+        <div class="tv-sub" id="tvLunchSub"></div>
       </div>
 
-      <div class="my-card">
-        <div class="label">내 반 저녁 출발</div>
-        <div class="big" id="myDinnerTime">반을 선택하세요</div>
+      <div class="tv-card">
+        <div class="tv-title">🌙 저녁 출발 안내</div>
+        <div class="tv-main" id="tvDinnerMain">확인 중</div>
+        <div class="tv-sub" id="tvDinnerSub"></div>
+      </div>
+    </div>
+
+    <div class="tv-my">
+      <div class="tv-my-title">👤 선택한 반 출발 시간</div>
+      <div class="tv-my-content">
+        <div class="tv-my-box">
+          <div class="tv-my-label">점심</div>
+          <div class="tv-my-time" id="tvMyLunch">반을 선택하세요</div>
+        </div>
+        <div class="tv-my-box">
+          <div class="tv-my-label">저녁</div>
+          <div class="tv-my-time" id="tvMyDinner">반을 선택하세요</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="live-grid">
-    <div class="live-card">
-      <div class="live-title">☀️ 점심 실시간 안내</div>
-      <div class="live-main" id="lunchLiveMain">확인 중</div>
-      <div class="live-sub" id="lunchLiveSub"></div>
-    </div>
-
-    <div class="live-card">
-      <div class="live-title">🌙 저녁 실시간 안내</div>
-      <div class="live-main" id="dinnerLiveMain">확인 중</div>
-      <div class="live-sub" id="dinnerLiveSub"></div>
-    </div>
-  </div>
-
-  <div class="date-control">
-    <button onclick="changeDate(-1)">◀ 어제</button>
-    <div class="selected-date" id="selectedDateText"></div>
-    <button onclick="goToday()">오늘</button>
-    <button onclick="changeDate(1)">내일 ▶</button>
-  </div>
-
-  <div class="section">
-    <h2>📅 급식 시간표</h2>
-    <div id="weekendNotice"></div>
-
-    <table class="table">
-      <tr>
-        <td>점심 식사</td>
-        <td class="yellow">12:20</td>
-        <td>출발 시작</td>
-        <td class="yellow">12:45</td>
-        <td>출발 간격</td>
-        <td>2분</td>
-      </tr>
-      <tr>
-        <td>저녁 식사</td>
-        <td class="yellow">17:40</td>
-        <td>출발 시작</td>
-        <td class="yellow">18:05</td>
-        <td>출발 간격</td>
-        <td>2분</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="section" style="margin-top:24px;">
-    <h2>🚌 출발 순서</h2>
-    <p id="ruleText" class="notice"></p>
-
-    <div class="order-box">
-      <div>
-        <h3>점심 출발 12:45~</h3>
-        <div class="order-list" id="lunchOrder"></div>
+  <div class="normal-only">
+    <div class="cards">
+      <div class="card">
+        <div class="meal-title">점심 식사</div>
+        <div class="meal-time" id="lunchTimeCard">12:20</div>
+        <div class="depart" id="lunchDepartCard">출발 12:45~</div>
       </div>
 
-      <div>
-        <h3>저녁 출발 18:05~</h3>
-        <div class="order-list" id="dinnerOrder"></div>
+      <div class="card">
+        <div class="meal-title">저녁 식사</div>
+        <div class="meal-time" id="dinnerTimeCard">17:40</div>
+        <div class="depart" id="dinnerDepartCard">출발 18:05~</div>
       </div>
     </div>
-  </div>
 
-  <div class="menu-box">
-    <div class="section menu">
-      <div class="menu-top">
-        <h2>🍴 중식 메뉴</h2>
-        <button class="allergy-btn" onclick="toggleAllergy()">알레르기 번호 보기</button>
+    <div class="section">
+      <h2>⚙️ 오늘만 시간 변경</h2>
+      <div class="notice">
+        시험, 행사, 특별 일정 때문에 급식 시간이 바뀌면 여기서 임시로 수정할 수 있습니다.
       </div>
-      <ul id="lunchMenu">
-        <li>급식 정보를 불러오는 중...</li>
-      </ul>
+
+      <div class="settings-grid" style="margin-top:18px;">
+        <div class="setting-field">
+          <label>점심 식사 시작</label>
+          <input type="time" id="setLunchTime">
+        </div>
+
+        <div class="setting-field">
+          <label>점심 출발 시작</label>
+          <input type="time" id="setLunchStart">
+        </div>
+
+        <div class="setting-field">
+          <label>저녁 식사 시작</label>
+          <input type="time" id="setDinnerTime">
+        </div>
+
+        <div class="setting-field">
+          <label>저녁 출발 시작</label>
+          <input type="time" id="setDinnerStart">
+        </div>
+
+        <div class="setting-field">
+          <label>출발 간격</label>
+          <input type="number" id="setGap" min="1" max="10">
+        </div>
+      </div>
+
+      <div class="settings-actions">
+        <button class="control-btn" onclick="saveTempSettings()">임시 시간 적용</button>
+        <button class="control-btn" onclick="resetTempSettings()">기본 시간으로 초기화</button>
+      </div>
+
+      <div class="setting-info" id="settingInfo"></div>
     </div>
 
-    <div class="section menu">
-      <div class="menu-top">
-        <h2>🌙 석식 메뉴</h2>
-        <button class="allergy-btn" onclick="toggleAllergy()">알레르기 번호 보기</button>
+    <div class="section my-box">
+      <div class="my-title">👤 우리 반 출발 시간</div>
+      <div class="class-buttons" id="classButtons"></div>
+
+      <div class="my-result">
+        <div class="my-card">
+          <div class="label">내 반 점심 출발</div>
+          <div class="big" id="myLunchTime">반을 선택하세요</div>
+        </div>
+
+        <div class="my-card">
+          <div class="label">내 반 저녁 출발</div>
+          <div class="big" id="myDinnerTime">반을 선택하세요</div>
+        </div>
       </div>
-      <ul id="dinnerMenu">
-        <li>급식 정보를 불러오는 중...</li>
-      </ul>
+    </div>
+
+    <div class="live-grid">
+      <div class="live-card">
+        <div class="live-title">☀️ 점심 실시간 안내</div>
+        <div class="live-main" id="lunchLiveMain">확인 중</div>
+        <div class="live-sub" id="lunchLiveSub"></div>
+      </div>
+
+      <div class="live-card">
+        <div class="live-title">🌙 저녁 실시간 안내</div>
+        <div class="live-main" id="dinnerLiveMain">확인 중</div>
+        <div class="live-sub" id="dinnerLiveSub"></div>
+      </div>
+    </div>
+
+    <div class="date-control">
+      <button onclick="changeDate(-1)">◀ 어제</button>
+      <div class="selected-date" id="selectedDateText"></div>
+      <button onclick="goToday()">오늘</button>
+      <button onclick="changeDate(1)">내일 ▶</button>
+    </div>
+
+    <div class="section">
+      <h2>📅 급식 시간표</h2>
+      <div id="weekendNotice"></div>
+
+      <table class="table">
+        <tr>
+          <td>점심 식사</td>
+          <td class="yellow" id="tableLunchTime">12:20</td>
+          <td>출발 시작</td>
+          <td class="yellow" id="tableLunchStart">12:45</td>
+          <td>출발 간격</td>
+          <td id="tableGap1">2분</td>
+        </tr>
+        <tr>
+          <td>저녁 식사</td>
+          <td class="yellow" id="tableDinnerTime">17:40</td>
+          <td>출발 시작</td>
+          <td class="yellow" id="tableDinnerStart">18:05</td>
+          <td>출발 간격</td>
+          <td id="tableGap2">2분</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section" style="margin-top:24px;">
+      <h2>🚌 출발 순서</h2>
+      <p id="ruleText" class="notice"></p>
+
+      <div class="order-box">
+        <div>
+          <h3 id="lunchOrderTitle">점심 출발 12:45~</h3>
+          <div class="order-list" id="lunchOrder"></div>
+        </div>
+
+        <div>
+          <h3 id="dinnerOrderTitle">저녁 출발 18:05~</h3>
+          <div class="order-list" id="dinnerOrder"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-box">
+      <div class="section menu">
+        <div class="menu-top">
+          <h2>🍴 중식 메뉴</h2>
+          <button class="allergy-btn" onclick="toggleAllergy()">알레르기 번호 보기</button>
+        </div>
+        <ul id="lunchMenu">
+          <li>급식 정보를 불러오는 중...</li>
+        </ul>
+      </div>
+
+      <div class="section menu">
+        <div class="menu-top">
+          <h2>🌙 석식 메뉴</h2>
+          <button class="allergy-btn" onclick="toggleAllergy()">알레르기 번호 보기</button>
+        </div>
+        <ul id="dinnerMenu">
+          <li>급식 정보를 불러오는 중...</li>
+        </ul>
+      </div>
     </div>
   </div>
 
 </div>
 
 <script>
-const LUNCH_TIME = "12:20";
-const DINNER_TIME = "17:40";
-const LUNCH_START = "12:45";
-const DINNER_START = "18:05";
+const DEFAULT_SETTINGS = {
+  lunchTime: "12:20",
+  dinnerTime: "17:40",
+  lunchStart: "12:45",
+  dinnerStart: "18:05",
+  gapMinutes: 2
+};
 
 const CLASS_COUNT = 10;
-const GAP_MINUTES = 2;
 
 const ATPT_CODE = "G10";
 const SCHOOL_CODE = "7430048";
@@ -507,6 +743,23 @@ const SCHOOL_CODE = "7430048";
 let selectedDate = new Date();
 let selectedClass = Number(localStorage.getItem("selectedClass")) || null;
 let showAllergy = false;
+
+let settings = loadSettings();
+
+function loadSettings() {
+  const saved = localStorage.getItem("mealTempSettings");
+  if (!saved) return { ...DEFAULT_SETTINGS };
+
+  try {
+    return { ...DEFAULT_SETTINGS, ...JSON.parse(saved) };
+  } catch {
+    return { ...DEFAULT_SETTINGS };
+  }
+}
+
+function saveSettingsToStorage() {
+  localStorage.setItem("mealTempSettings", JSON.stringify(settings));
+}
 
 function pad(n) {
   return String(n).padStart(2, "0");
@@ -569,17 +822,17 @@ function makeOrder(firstClass) {
 function getClassDepartureTime(startTime, order, classNum) {
   const index = order.indexOf(classNum);
   if (index === -1) return null;
-  return addMinutes(startTime, index * GAP_MINUTES);
+  return addMinutes(startTime, index * settings.gapMinutes);
 }
 
 function getStatus(now) {
   const current = now.getHours() * 60 + now.getMinutes();
-  const lunch = timeToMinutes(LUNCH_TIME);
-  const lunchStart = timeToMinutes(LUNCH_START);
-  const lunchEnd = timeToMinutes(addMinutes(LUNCH_START, (CLASS_COUNT - 1) * GAP_MINUTES + GAP_MINUTES));
-  const dinner = timeToMinutes(DINNER_TIME);
-  const dinnerStart = timeToMinutes(DINNER_START);
-  const dinnerEnd = timeToMinutes(addMinutes(DINNER_START, (CLASS_COUNT - 1) * GAP_MINUTES + GAP_MINUTES));
+  const lunch = timeToMinutes(settings.lunchTime);
+  const lunchStart = timeToMinutes(settings.lunchStart);
+  const lunchEnd = timeToMinutes(addMinutes(settings.lunchStart, CLASS_COUNT * settings.gapMinutes));
+  const dinner = timeToMinutes(settings.dinnerTime);
+  const dinnerStart = timeToMinutes(settings.dinnerStart);
+  const dinnerEnd = timeToMinutes(addMinutes(settings.dinnerStart, CLASS_COUNT * settings.gapMinutes));
 
   if (current < lunch) return "점심 식사 전";
   if (current < lunchStart) return "점심 식사 시간";
@@ -593,12 +846,11 @@ function getStatus(now) {
 function getLiveInfo(startTime, order, now) {
   const currentMinutes = now.getHours() * 60 + now.getMinutes();
   const startMinutes = timeToMinutes(startTime);
-  const endMinutes = startMinutes + CLASS_COUNT * GAP_MINUTES;
+  const endMinutes = startMinutes + CLASS_COUNT * settings.gapMinutes;
 
   if (currentMinutes < startMinutes) {
     const remain = startMinutes - currentMinutes;
     return {
-      type: "before",
       main: `첫 출발까지 ${remain}분 남음`,
       sub: `첫 출발: ${order[0]}반 ${startTime}`,
       nowClass: null,
@@ -608,7 +860,6 @@ function getLiveInfo(startTime, order, now) {
 
   if (currentMinutes >= endMinutes) {
     return {
-      type: "after",
       main: "출발 종료",
       sub: "모든 반 출발 시간이 지났습니다.",
       nowClass: null,
@@ -616,19 +867,18 @@ function getLiveInfo(startTime, order, now) {
     };
   }
 
-  const index = Math.floor((currentMinutes - startMinutes) / GAP_MINUTES);
+  const index = Math.floor((currentMinutes - startMinutes) / settings.gapMinutes);
   const nowClass = order[index];
   const nextClass = order[index + 1] || null;
 
   let sub = `현재 출발: ${nowClass}반`;
   if (nextClass) {
-    sub += `<br>다음 출발: ${nextClass}반 ${addMinutes(startTime, (index + 1) * GAP_MINUTES)}`;
+    sub += `<br>다음 출발: ${nextClass}반 ${addMinutes(startTime, (index + 1) * settings.gapMinutes)}`;
   } else {
     sub += `<br>마지막 출발 반입니다.`;
   }
 
   return {
-    type: "during",
     main: `지금 ${nowClass}반 출발`,
     sub,
     nowClass,
@@ -645,17 +895,28 @@ function renderLive() {
     document.getElementById("lunchLiveSub").innerHTML = "실시간 안내는 오늘 날짜에서 확인할 수 있습니다.";
     document.getElementById("dinnerLiveMain").innerHTML = "선택한 날짜 안내";
     document.getElementById("dinnerLiveSub").innerHTML = "실시간 안내는 오늘 날짜에서 확인할 수 있습니다.";
+
+    document.getElementById("tvLunchMain").innerHTML = "선택 날짜";
+    document.getElementById("tvLunchSub").innerHTML = "실시간 안내는 오늘 날짜에서 확인 가능합니다.";
+    document.getElementById("tvDinnerMain").innerHTML = "선택 날짜";
+    document.getElementById("tvDinnerSub").innerHTML = "실시간 안내는 오늘 날짜에서 확인 가능합니다.";
     return;
   }
 
-  const lunch = getLiveInfo(LUNCH_START, order, now);
-  const dinner = getLiveInfo(DINNER_START, order, now);
+  const lunch = getLiveInfo(settings.lunchStart, order, now);
+  const dinner = getLiveInfo(settings.dinnerStart, order, now);
 
   document.getElementById("lunchLiveMain").innerHTML = lunch.main;
   document.getElementById("lunchLiveSub").innerHTML = lunch.sub;
 
   document.getElementById("dinnerLiveMain").innerHTML = dinner.main;
   document.getElementById("dinnerLiveSub").innerHTML = dinner.sub;
+
+  document.getElementById("tvLunchMain").innerHTML = lunch.main;
+  document.getElementById("tvLunchSub").innerHTML = lunch.sub;
+
+  document.getElementById("tvDinnerMain").innerHTML = dinner.main;
+  document.getElementById("tvDinnerSub").innerHTML = dinner.sub;
 }
 
 function updateClock() {
@@ -698,14 +959,18 @@ function renderMyClass() {
   if (!selectedClass) {
     document.getElementById("myLunchTime").textContent = "반을 선택하세요";
     document.getElementById("myDinnerTime").textContent = "반을 선택하세요";
+    document.getElementById("tvMyLunch").textContent = "반을 선택하세요";
+    document.getElementById("tvMyDinner").textContent = "반을 선택하세요";
     return;
   }
 
-  const lunchTime = getClassDepartureTime(LUNCH_START, order, selectedClass);
-  const dinnerTime = getClassDepartureTime(DINNER_START, order, selectedClass);
+  const lunchTime = getClassDepartureTime(settings.lunchStart, order, selectedClass);
+  const dinnerTime = getClassDepartureTime(settings.dinnerStart, order, selectedClass);
 
   document.getElementById("myLunchTime").textContent = `${selectedClass}반 ${lunchTime}`;
   document.getElementById("myDinnerTime").textContent = `${selectedClass}반 ${dinnerTime}`;
+  document.getElementById("tvMyLunch").textContent = `${selectedClass}반 ${lunchTime}`;
+  document.getElementById("tvMyDinner").textContent = `${selectedClass}반 ${dinnerTime}`;
 }
 
 function renderOrderList(elementId, startTime, order, nowClass) {
@@ -726,7 +991,7 @@ function renderOrderList(elementId, startTime, order, nowClass) {
 
     div.innerHTML = `
       <span><span class="num">${index + 1}</span> ${cls}반</span>
-      <span class="yellow">${addMinutes(startTime, index * GAP_MINUTES)}</span>
+      <span class="yellow">${addMinutes(startTime, index * settings.gapMinutes)}</span>
     `;
     box.appendChild(div);
   });
@@ -740,8 +1005,8 @@ function renderOrder() {
   let dinnerNowClass = null;
 
   if (isSameDate(selectedDate, now)) {
-    lunchNowClass = getLiveInfo(LUNCH_START, order, now).nowClass;
-    dinnerNowClass = getLiveInfo(DINNER_START, order, now).nowClass;
+    lunchNowClass = getLiveInfo(settings.lunchStart, order, now).nowClass;
+    dinnerNowClass = getLiveInfo(settings.dinnerStart, order, now).nowClass;
   }
 
   document.getElementById("ruleText").innerHTML =
@@ -749,8 +1014,8 @@ function renderOrder() {
      → 첫 출발: <span class="yellow">${getFirstClass(selectedDate)}반</span>
      <br>날짜 끝자리가 0이면 10반부터 출발합니다.`;
 
-  renderOrderList("lunchOrder", LUNCH_START, order, lunchNowClass);
-  renderOrderList("dinnerOrder", DINNER_START, order, dinnerNowClass);
+  renderOrderList("lunchOrder", settings.lunchStart, order, lunchNowClass);
+  renderOrderList("dinnerOrder", settings.dinnerStart, order, dinnerNowClass);
 }
 
 function renderDateInfo() {
@@ -768,15 +1033,77 @@ function renderDateInfo() {
   }
 }
 
+function renderSettings() {
+  document.getElementById("setLunchTime").value = settings.lunchTime;
+  document.getElementById("setLunchStart").value = settings.lunchStart;
+  document.getElementById("setDinnerTime").value = settings.dinnerTime;
+  document.getElementById("setDinnerStart").value = settings.dinnerStart;
+  document.getElementById("setGap").value = settings.gapMinutes;
+
+  document.getElementById("lunchTimeCard").textContent = settings.lunchTime;
+  document.getElementById("dinnerTimeCard").textContent = settings.dinnerTime;
+  document.getElementById("lunchDepartCard").textContent = `출발 ${settings.lunchStart}~`;
+  document.getElementById("dinnerDepartCard").textContent = `출발 ${settings.dinnerStart}~`;
+
+  document.getElementById("tableLunchTime").textContent = settings.lunchTime;
+  document.getElementById("tableLunchStart").textContent = settings.lunchStart;
+  document.getElementById("tableDinnerTime").textContent = settings.dinnerTime;
+  document.getElementById("tableDinnerStart").textContent = settings.dinnerStart;
+  document.getElementById("tableGap1").textContent = `${settings.gapMinutes}분`;
+  document.getElementById("tableGap2").textContent = `${settings.gapMinutes}분`;
+
+  document.getElementById("lunchOrderTitle").textContent = `점심 출발 ${settings.lunchStart}~`;
+  document.getElementById("dinnerOrderTitle").textContent = `저녁 출발 ${settings.dinnerStart}~`;
+
+  const isDefault =
+    settings.lunchTime === DEFAULT_SETTINGS.lunchTime &&
+    settings.dinnerTime === DEFAULT_SETTINGS.dinnerTime &&
+    settings.lunchStart === DEFAULT_SETTINGS.lunchStart &&
+    settings.dinnerStart === DEFAULT_SETTINGS.dinnerStart &&
+    Number(settings.gapMinutes) === DEFAULT_SETTINGS.gapMinutes;
+
+  document.getElementById("settingInfo").innerHTML = isDefault
+    ? "현재 기본 시간표를 사용 중입니다."
+    : "현재 임시 시간표가 적용되어 있습니다. 필요하면 초기화할 수 있습니다.";
+}
+
+function saveTempSettings() {
+  const gap = Number(document.getElementById("setGap").value);
+
+  if (!gap || gap < 1 || gap > 10) {
+    alert("출발 간격은 1분 이상 10분 이하로 입력하세요.");
+    return;
+  }
+
+  settings = {
+    lunchTime: document.getElementById("setLunchTime").value || DEFAULT_SETTINGS.lunchTime,
+    lunchStart: document.getElementById("setLunchStart").value || DEFAULT_SETTINGS.lunchStart,
+    dinnerTime: document.getElementById("setDinnerTime").value || DEFAULT_SETTINGS.dinnerTime,
+    dinnerStart: document.getElementById("setDinnerStart").value || DEFAULT_SETTINGS.dinnerStart,
+    gapMinutes: gap
+  };
+
+  saveSettingsToStorage();
+  refreshAll(false);
+  alert("임시 시간표가 적용되었습니다.");
+}
+
+function resetTempSettings() {
+  settings = { ...DEFAULT_SETTINGS };
+  localStorage.removeItem("mealTempSettings");
+  refreshAll(false);
+  alert("기본 시간표로 초기화되었습니다.");
+}
+
 function changeDate(offset) {
   selectedDate.setDate(selectedDate.getDate() + offset);
   selectedDate = new Date(selectedDate);
-  refreshAll();
+  refreshAll(true);
 }
 
 function goToday() {
   selectedDate = new Date();
-  refreshAll();
+  refreshAll(true);
 }
 
 function cleanMenuWithAllergy(text) {
@@ -816,8 +1143,8 @@ async function loadMeal() {
     showMenu("lunchMenu", lunch);
     showMenu("dinnerMenu", dinner);
   } catch (e) {
-    document.getElementById("lunchMenu").innerHTML = "<li>급식 정보를 불러오지 못했습니다.</li>";
-    document.getElementById("dinnerMenu").innerHTML = "<li>급식 정보를 불러오지 못했습니다.</li>";
+    document.getElementById("lunchMenu").innerHTML = "<li>급식 메뉴를 불러오지 못했습니다. 출발 시간표는 정상적으로 이용할 수 있습니다.</li>";
+    document.getElementById("dinnerMenu").innerHTML = "<li>급식 메뉴를 불러오지 못했습니다. 출발 시간표는 정상적으로 이용할 수 있습니다.</li>";
   }
 }
 
@@ -825,7 +1152,7 @@ function showMenu(id, meal) {
   const ul = document.getElementById(id);
 
   if (!meal) {
-    ul.innerHTML = "<li>급식 정보가 없습니다.</li>";
+    ul.innerHTML = "<li>급식 정보가 없습니다. 주말, 공휴일, 방학 또는 학교 사정일 수 있습니다.</li>";
     return;
   }
 
@@ -860,16 +1187,29 @@ function toggleFullScreen() {
   }
 }
 
-function refreshAll() {
+function toggleTVMode() {
+  document.body.classList.toggle("tv-mode");
+
+  const btn = document.querySelector(".top-buttons button");
+  btn.textContent = document.body.classList.contains("tv-mode")
+    ? "일반 화면으로"
+    : "TV 크게 보기";
+}
+
+function refreshAll(reloadMeal = true) {
   renderDateInfo();
+  renderSettings();
   renderClassButtons();
   renderMyClass();
   renderLive();
   renderOrder();
-  loadMeal();
+
+  if (reloadMeal) {
+    loadMeal();
+  }
 }
 
-refreshAll();
+refreshAll(true);
 updateClock();
 setInterval(updateClock, 1000);
 </script>
